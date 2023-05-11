@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/memory_overflow/static/css/main.e6c13ad2.css",
+    "main.js": "/memory_overflow/static/js/main.9cd3bc0e.js",
+    "static/js/787.a2136dc4.chunk.js": "/memory_overflow/static/js/787.a2136dc4.chunk.js",
+    "index.html": "/memory_overflow/index.html",
+    "main.e6c13ad2.css.map": "/memory_overflow/static/css/main.e6c13ad2.css.map",
+    "main.9cd3bc0e.js.map": "/memory_overflow/static/js/main.9cd3bc0e.js.map",
+    "787.a2136dc4.chunk.js.map": "/memory_overflow/static/js/787.a2136dc4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.9cd3bc0e.js"
+  ]
+}
