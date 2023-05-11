@@ -16,7 +16,7 @@ const baseStringSize = new Blob([s]).size;
 
 
 function App() {
-  const [stringMemory, setStringMemory] = useState(0);
+  const [stringMemory, setStringMemory] = useState(baseStringSize);
   const [bufferMemory, setBufferMemory] = useState(0);
   const [runningAddStrings, setRunningAddStrings] = useState(false);
   const [runningAddBuffers, setRunningAddBuffers] = useState(false);
@@ -38,7 +38,7 @@ function App() {
     const interval = setInterval(() => {
       if (runningAddStrings) {
         stringData.push(s.toUpperCase());
-        setStringMemory(stringData.length * baseStringSize);
+        setStringMemory((stringData.length + 1) * baseStringSize);
       } else {
         try {
           const bytes = new Uint8Array(baseSize);
@@ -55,13 +55,14 @@ function App() {
 
   return (
     <div>
-        <div>Heap memory usage: {prettyBytes(stringMemory)}</div>
+        <div>String memory usage: {prettyBytes(stringMemory)}</div>
         <div>Buffer memory usage: {prettyBytes(bufferMemory)}</div>
         <div>Memory usage from API: {prettyBytes(window.performance.memory.usedJSHeapSize)}</div>
+        <div>Memory limit from API: {prettyBytes(window.performance.memory.jsHeapSizeLimit)}</div>
         {bufferMemoryLimitReached && <div>Buffer memory limit is about {prettyBytes(bufferMemory)}</div>}
         {memoryUsage && (<div>measureUserAgentSpecificMemory: <JsonViewer value={memoryUsage} /></div>)}
         <div>
-          <button onClick={() => setRunningAddStrings(!runningAddStrings)}>{runningAddStrings ? 'stop creating strings' : 'start creating strings'}</button>
+          {<button onClick={() => setRunningAddStrings(!runningAddStrings)}>{runningAddStrings ? 'stop creating strings' : 'start creating strings'}</button>}
           <button onClick={() => setRunningAddBuffers(!runningAddBuffers)}>{runningAddBuffers ? 'stop creating byte arrays' : 'start creating byte arrays'}</button>
         </div>
     </div>

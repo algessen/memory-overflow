@@ -2,7 +2,7 @@
   "name": "memory-overfow",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://algessen.github.io/memory_overflow",
+  "homepage": "https://algessen.github.io/memory-overflow",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
